@@ -10,6 +10,13 @@ import (
 	"github.com/Neel278/test3/helpers"
 )
 
+// @Summary Fetch all books list from book-store
+// @Description Fetches all the books from book store.
+// @Accept json
+// @Produce json
+// @Success 200 {string} string "OK"
+// @Failure 400 {string} string "Bad Request"
+// @Router / [get]
 func GetAllData(w http.ResponseWriter, r *http.Request) {
 	data := helpers.ReadBooks()
 
@@ -23,6 +30,14 @@ func GetAllData(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(jsonData))
 }
 
+// @Summary Fetch single book by id
+// @Description Fetches single book by it's id from the book store.
+// @Accept json
+// @Produce json
+// @Param id query string true "id of book to fetch"
+// @Success 200 {string} string "OK"
+// @Failure 400 {string} string "Bad Request"
+// @Router /book [get]
 func GetOneData(w http.ResponseWriter, r *http.Request) {
 
 	id := r.URL.Query().Get("id")
@@ -64,6 +79,14 @@ func GetOneData(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(jsonData))
 }
 
+// @Summary Create a new book in book-store
+// @Description Adds a new book to the book store.
+// @Accept json
+// @Produce json
+// @Param book body helpers.Book true "book body param"
+// @Success 200 {string} string "OK"
+// @Failure 400 {string} string "Bad Request"
+// @Router /create [post]
 func CreateNewData(w http.ResponseWriter, r *http.Request) {
 
 	var book helpers.Book
@@ -83,6 +106,15 @@ func CreateNewData(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("Success"))
 }
 
+// @Summary Updates an existing book in book-store
+// @Description Updates an existing book in book store.
+// @Accept json
+// @Produce json
+// @Param id query string true "id of the book that you want to update to"
+// @Param book body helpers.Book true "new info that you want to change in current book info"
+// @Success 200 {string} string "OK"
+// @Failure 400 {string} string "Bad Request"
+// @Router /update [post]
 func UpdateData(w http.ResponseWriter, r *http.Request) {
 
 	var book helpers.Book
@@ -120,6 +152,14 @@ func UpdateData(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("OK"))
 }
 
+// @Summary Delete single book by id
+// @Description Delete single book by it's id from the book store.
+// @Accept json
+// @Produce json
+// @Param id query string true "id of book to delete"
+// @Success 200 {string} string "OK"
+// @Failure 400 {string} string "Bad Request"
+// @Router /delete [delete]
 func DeleteData(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
 

@@ -19,6 +19,7 @@
 /go.sum
 /_test/
 /.env
+/docs/
 
 # IDE or editor specific files
 .idea/
