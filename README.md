@@ -18,12 +18,16 @@ This is an online book store web app.
 ## Project Start Command
 
 ```bash
+go install
+swag init
 go run .
 ```
 
 or for development purposes use below nodemon command for live refresh as you make changes
 
 ```bash
+go install
+swag init
 nodemon -e go --signal SIGTERM --exec 'go' run .
 ```
 
