@@ -1,0 +1,51 @@
+# Compiled object files, binaries, and build directories
+*.o
+*.a
+*.exe
+*.out
+*.so
+*.test
+*.prof
+*.trace
+*.app
+*.test
+*.egg-info
+*.egg
+
+# Go specific files and directories
+/bin/
+/pkg/
+/vendor/
+/go.sum
+/_test/
+/.env
+
+# IDE or editor specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# Compiled Go files
+*.test
+*.prof
+
+# System files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+
+# Logs and temporary files
+*.log
+*.tmp
+*.pid
+*.swp
+
+# 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
