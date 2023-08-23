@@ -8,8 +8,8 @@ import (
 )
 
 func main() {
-	routes.RouterInitializer()
-	err := http.ListenAndServe("localhost:3000", nil)
+	router := routes.RouterInitializer()
+	err := http.ListenAndServe("localhost:3000", router)
 	if err != nil {
 		log.Fatal(err)
 	}

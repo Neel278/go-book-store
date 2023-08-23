@@ -1,11 +1,15 @@
 package routes
 
-import "net/http"
+import (
+	"github.com/gorilla/mux"
+)
 
-func RouterInitializer() {
-	http.HandleFunc("/create", CreateNewData)
-	http.HandleFunc("/update", UpdateData)
-	http.HandleFunc("/delete", DeleteData)
-	http.HandleFunc("/book", GetOneData)
-	http.HandleFunc("/", GetAllData)
+func RouterInitializer() *mux.Router {
+	router := mux.NewRouter()
+	router.HandleFunc("/create", CreateNewData)
+	router.HandleFunc("/update", UpdateData)
+	router.HandleFunc("/delete", DeleteData)
+	router.HandleFunc("/book", GetOneData)
+	router.HandleFunc("/", GetAllData)
+	return router
 }
