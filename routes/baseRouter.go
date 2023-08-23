@@ -11,12 +11,6 @@ import (
 )
 
 func GetAllData(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodGet {
-		err := errors.New("invalid method")
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		w.Write([]byte(err.Error()))
-		return
-	}
 	data := helpers.ReadBooks()
 
 	jsonData, err := json.Marshal(data)
@@ -30,12 +24,6 @@ func GetAllData(w http.ResponseWriter, r *http.Request) {
 }
 
 func GetOneData(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodGet {
-		err := errors.New("invalid method")
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		w.Write([]byte(err.Error()))
-		return
-	}
 
 	id := r.URL.Query().Get("id")
 
@@ -77,12 +65,6 @@ func GetOneData(w http.ResponseWriter, r *http.Request) {
 }
 
 func CreateNewData(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		err := errors.New("invalid method")
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		w.Write([]byte(err.Error()))
-		return
-	}
 
 	var book helpers.Book
 	err := json.NewDecoder(r.Body).Decode(&book)
@@ -102,12 +84,6 @@ func CreateNewData(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateData(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodPost {
-		err := errors.New("invalid method")
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		w.Write([]byte(err.Error()))
-		return
-	}
 
 	var book helpers.Book
 	err := json.NewDecoder(r.Body).Decode(&book)
@@ -145,13 +121,6 @@ func UpdateData(w http.ResponseWriter, r *http.Request) {
 }
 
 func DeleteData(w http.ResponseWriter, r *http.Request) {
-	if r.Method != http.MethodDelete {
-		err := errors.New("invalid method")
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		w.Write([]byte(err.Error()))
-		return
-	}
-
 	id := r.URL.Query().Get("id")
 
 	idInInt, err := strconv.Atoi(id)
